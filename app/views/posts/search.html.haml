@@ -1,0 +1,15 @@
+%p#notice= notice
+
+= render "search-form"
+
+%br
+
+- if !@posts.empty?
+  %h1= "We found these posts for \"#{params[:post][:q]}\""
+  = render "list"
+- else
+  %h1= "We didn't find any posts that included \"#{params[:post][:q]}\""
+
+%br
+
+%p= link_to 'Write New Post', new_post_path

@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%h2= @post.title
+%p= link_to @post.author.full_name, @post.author
+%p= @post.content
+%p.text-muted= "Average rating: #{@post.rating_string}"
+%br
+%br
+
+- if !@post.comments.empty?
+  %h5 Comments
+  %h6= @post.comments.last.title
+  %h6.text-muted= pluralize(@post.comments.last.stars, "stars")
+  %h6.text-muted= "By #{@post.comments.last.author_name}"
+  %h6= @post.comments.last.content
+  %br
+  = link_to "Read all #{@post.comments.length} comments", post_comments_path(@post)
+
+%br
+%br
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Delete', post_path, method: :delete
+\|
+= link_to 'Back', posts_path

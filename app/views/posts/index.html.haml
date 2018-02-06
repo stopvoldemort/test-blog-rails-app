@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%h1 Posts
+
+= render "search-form"
+
+%br
+
+= render "list"
+
+%br
+
+%p= link_to 'Write New Post', new_post_path

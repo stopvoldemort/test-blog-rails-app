@@ -1,0 +1,19 @@
+%h1 Comments for #{link_to @post.title, @post}
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @comments.each do |comment|
+      %h3= "\"#{comment.title}\""
+      %h6.text-muted= pluralize(comment.stars, "stars")
+      %h5.text-muted= "By #{comment.processed_author_name}"
+      %h6= comment.content
+      %br
+
+%p= link_to 'Write a new comment', new_post_comment_path
+%p= link_to 'Back', @post

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @author.full_name %>
+</h2>
+<ul>
+  <% @author.posts.each do |post| %>
+    <li><%= link_to post.title, post %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Delete', @author, method: :delete %> |
+<%= link_to 'Back', authors_path %>
