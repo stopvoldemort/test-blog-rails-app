@@ -1,0 +1,15 @@
+%p#notice= notice
+
+= render "filter-form"
+
+%br
+
+- if !@posts.empty?
+  %h1= "We found these posts"
+  = render "list"
+- else
+  %h1= "We didn't find any posts"
+
+%br
+
+%p= link_to 'Write New Post', new_post_path

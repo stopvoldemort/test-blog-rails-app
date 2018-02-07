@@ -1,0 +1,17 @@
+
+= form_with url: filter_posts_url, method: "get", local: true do |f|
+  = f.label("post[q]", "Search: ")
+  = f.text_field "post[q]"
+  %br
+  = f.label("post[author_id]", "Filter by author: ")
+  = f.collection_select("post[author_id]", Author.all, :id, :full_name, prompt: true)
+  %br
+  = f.label("post[has_rating]", "w/ ratings only: ")
+  = f.check_box("post[has_rating]")
+  %br
+  = f.label("post[rating_minimum]", "Minimum rating: ")
+  = f.number_field("post[rating_minimum]", min: 0.0, max: 5.0, step: 0.5)
+  %br
+  = f.submit "Find Post"
+
+-# ADD FILTER BY AUTHOR AND RATING HERE

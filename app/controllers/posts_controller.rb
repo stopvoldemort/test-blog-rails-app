@@ -23,15 +23,8 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/search
-  def search
-    print "test: ", post_params(:q)[:q], "\n"
-    if post_params(:q)
-      @posts = Post.search(post_params(:q)[:q])
-      puts @posts
-      @posts
-    else
-      @posts = []
-    end
+  def filter
+    @posts = Post.filter(post_params(:q, :author_id, :has_rating, :rating_minimum))
   end
 
   # POST /posts
