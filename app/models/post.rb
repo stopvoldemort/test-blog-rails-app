@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :comments
 
   def avg_stars
+    return 0 if self.comments.empty?
     sum = self.comments.reduce(0) do |sum, comment|
       sum + comment.stars
     end

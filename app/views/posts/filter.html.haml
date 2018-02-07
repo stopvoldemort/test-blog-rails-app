@@ -6,7 +6,7 @@
 
 - if !@posts.empty?
   %h1= "We found these posts"
-  = render "list"
+  = render "list", :posts => @posts
 - else
   %h1= "We didn't find any posts"
 

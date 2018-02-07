@@ -1,3 +1,5 @@
+
+
 %table
   %thead
     %tr
@@ -5,7 +7,7 @@
       %th Author
       %th Rating
   %tbody
-    - Post.sorted_by_rating(@posts).each do |post|
+    - Post.sorted_by_rating(posts).each do |post|
       %tr
         %td= link_to post.title, post |
         %td= "by #{post.author.full_name}"
